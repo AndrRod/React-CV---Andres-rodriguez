@@ -1,6 +1,7 @@
 # El objetivo del Proyecto es consumir Api Rest creado en Java y Spring Boot
 # Vista previa:
-![../public/cvAndresRodriguez.png](cvAndresRodriguez.png)
+![vista previs](../public/cvAndresRodriguez.png) 
+
 
 # Getting Started with Create React App
 
