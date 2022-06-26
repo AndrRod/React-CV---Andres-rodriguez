@@ -1,3 +1,7 @@
+# El objetivo del Proyecto es consumir Api Rest creado en Java y Spring Boot
+# Vista previa:
+![../public/cvAndresRodriguez.png](cvAndresRodriguez.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
