@@ -106,20 +106,15 @@ ul {
 .backBody, .root{
   margin: 0;
   align-items: center;     
-  background-color: #222;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 30px;
+  background-color: #222; 
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px;
   height: 30cm;  
   transition: 0.5s all    
 } 
 .backBody:hover, .root:hover{
   background-color: #2685BB;
 }
-/* $(".backBody").hover(function(){
-  $(this).css("background-color", "#2685BB");
-  }, function(){
-  $(this).css("background-color", "#222");
-  }); */
 .div-margin{ 
   background-color:white;
   padding: 0.1%;
@@ -133,28 +128,27 @@ ul {
   filter: drop-shadow(5px 5px 15px #000);
   /* padding: 0%; */
 }
-.div-body{
+#div-body{
   background-color:white;
   padding: 0.5%;
   display: grid;  
-  grid-template-columns: 2fr 4fr;    
-  
+  grid-template-columns: 2fr 4fr;      
 }
-.div-1, .div-2, .div-3, .div-4, .div-5{    
+#div-1, #div-2, #div-3, #div-4, #div-5{    
   /* border: 3px solid black; */
   padding: 0%;
   margin: 1% 0.5% 2% 5%;
 }
-.div-1{padding: 5%;}
-.div-foot{   
+#div-1{padding: 5%;}
+#div-foot{   
   padding: 0.5%;
   margin: 0.5%; 
 }
-.col-1{    
+#col-1{    
   position: sticky; 
   top: 10%;    
 }
-.col-2{ 
+#col-2{ 
   background-color:#efefef;
 }
 .text-cent{
@@ -207,8 +201,7 @@ ul {
 .div-head{
   padding: 20px 0;
 }
-.div-foot{
-  
+#div-foot{  
   font-size: 15px;
   text-align: center;
   font-family: 'Oswald', sans-serif; 
@@ -219,22 +212,22 @@ ul {
 .cont-img{
   height: 40px;
 }
-h3, h4, h5{
+#h3, #h4, #h5{
   margin: 0%;
 }
-h2{
+#h2{
   font-family: 'Josefin Sans', sans-serif;
   font-size: 35px;    
 }
-h3{    
+#h3{    
   font-family: 'Oswald', sans-serif;
-  font-size: 20px;    
+  font-size: 22px;    
 }
-h4{
+#h4{
   font-family: 'Dosis', sans-serif;
-  font-size: 18px;    
+  font-size: 21px;    
 }
-h5{
+#h5{
   font-family: 'Oswald', sans-serif;    
   font-size: 20px;    
 }
@@ -261,13 +254,14 @@ a{
 a:hover, a:focus {
   color:tomato;
 }
-.links {
+#links {
   position: relative;
   overflow: hidden;
   display: inline-block;
   text-decoration: none;
+  color:#222;
 }
-.links:after {
+#links:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -277,6 +271,10 @@ a:hover, a:focus {
   background: tomato;
   transition: right .8s;
 }
-.links:hover:after {
-  right: 0;
+#links:hover{
+  color: tomato;
+}
+#links:hover:after {
+  right: 0;  
+  background: tomato;
 }
