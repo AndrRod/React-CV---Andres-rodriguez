@@ -25,6 +25,7 @@ function App() {
     password: ""
  });
  const [isLog, setIsLog] = useState("");
+ const [lenghtToken, setlenghtToken] = useState("")
 
  const handleChangeBodyParameters = (e) => {
    setBodyParameters({
@@ -51,8 +52,9 @@ function App() {
       axios.defaults.headers.common['Authorization'] = `${token}`;
     }
   } 
-  const [modalLogin, setmodalLogin] = useState(false);
 
+  const [modalLogin, setmodalLogin] = useState(false);
+  
 
   const updateEstadeModalLogin = ()=>{
     if(modalLogin===false){ 
@@ -64,6 +66,25 @@ function App() {
     }
   }
 
+  const logout = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    axios.defaults.headers.common['Authorization'] = ""
+    setIsLog(false)    
+  }
+
+  const [modalLogout, setmodalLogout] = useState(false);
+  
+
+  const updateEstadeModalLogout = ()=>{
+    if(modalLogout===false){ 
+      setTimeout(async function(){
+        setmodalLogout(true);
+      }, 300)
+    }else{
+      setmodalLogout(false)    
+    }
+  }
 
   // }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 // --------------------------------------------------------------
@@ -71,11 +92,13 @@ function App() {
   const [getProfil, setGetProfil] = useState([]);   
 
   const requestGet= async ()=>{       
-      await axios.get(url + "/person")
+      await axios.get(url + "/person/get")
     .then(response=>{          
         setGetProfil(response.data);
-        console.log(response.data)    
-    }).catch(error=>{
+        // console.log(response.data) 
+        // console.log(localStorage.getItem("userToken"))
+        
+    }).catch(error=>{     
       console.log(error)
     })
   }  
@@ -550,8 +573,19 @@ const requestDeleteEducation = async (idEd)=>{
 
 
    {/* modal login finish- --------------------------------------- */}
+  {/* modal logout start - --------------------------------------- */}
 
-
+   <Modal isOpen={modalLogout}>       
+       <ModalBody>
+             <p>¿Estas seguro que quieres desloguearte?</p>
+              
+           </ModalBody><ModalFooter>
+               <button className="btn btn-danger" onClick={() =>{logout();updateEstadeModalLogout()}}>Si</button>
+               <button className="btn btn-primary" onClick={() => {updateEstadeModalLogout()}}>No</button>
+            </ModalFooter>
+     </Modal>
+        
+{/* modal logout finish - --------------------------------------- */}
       {/* // start modal TITLE -------------------------------------- */}
       <Modal isOpen={modalModifeTitle} >
      <ModalHeader style={{display: 'float'}}>
@@ -764,7 +798,7 @@ const requestDeleteEducation = async (idEd)=>{
       :
       <button className='btn btn-outline-primary btn-sm' onClick={()=>{requestPostContact(contact); updateEstadeModalPostContact()}}>Insertar</button>           
     }
-       <button className='btn btn-outline-danger btn-sm'  onClick={()=>{modalModifeExperience? updateEstadeModalModifeContact(): updateEstadeModalPostContact()}}>Cancelar</button>
+       <button className='btn btn-outline-danger btn-sm'  onClick={()=>{modalModifeContact? updateEstadeModalModifeContact(): updateEstadeModalPostContact()}}>Cancelar</button>
         
      </ModalFooter>
   
@@ -853,9 +887,11 @@ const requestDeleteEducation = async (idEd)=>{
     <nav class="div-nav"> 
         <ul class="menu">
             <li class="logo"><a class="link" href="#">{getProfil.firstName} {getProfil.lastName} - CV</a></li>
-       
-            <li class="item button secondary"><a class="link" href="#" onClick={()=>{updateEstadeModalLogin()}}>Login</a></li>
-            {/* <li class="item button secondary"><a class="link" href="#">Sign Up</a></li> */}
+            {isLog
+            ?<li class="item button secondary"><a class="link" href="#" onClick={()=>{updateEstadeModalLogout()}}>Log out</a></li>
+            :<li class="item button secondary"><a class="link" href="#" onClick={()=>{updateEstadeModalLogin()}}>Login</a></li>
+            
+          }
           
         </ul>
     </nav>
