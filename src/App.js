@@ -18,7 +18,14 @@ import './App.css';
 function App() { 
   let url = "http://localhost:8080"  
 
-
+  var now = new Date();
+  var month = (now.getMonth() + 1);               
+  var day = now.getDate();
+  if (month < 10) 
+      month = "0" + month;
+  if (day < 10) 
+      day = "0" + day;
+  var today = now.getFullYear() + '-' + month + '-' + day;
   // login ---------------------------------------------------------------
   const [bodyParameters, setBodyParameters] = useState({
     email: "",
@@ -37,8 +44,8 @@ function App() {
     const body = bodyParm;
    axios.post(url  + "/auth/login", body)
    .then(response=>{
-    console.log(response)
-    console.log(response.data.access_Token)
+    // console.log(response)
+    // console.log(response.data.access_Token)
     setIsLog(true)
     localStorage.setItem("userToken", JSON.stringify(response.data.access_Token));
     setAuthToken("Bearer "+ JSON.parse(localStorage.getItem("userToken")))    
@@ -137,7 +144,7 @@ const updateEstadeModalModifeTitle = ()=>{
 const requestPut = async (id, user)=>{
   const newProfil = profil;
   await axios.put(url + "/person", newProfil).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
@@ -190,7 +197,7 @@ const updateEstadeModalModifeSkill = ()=>{
 const requestPutSkill = async (id, skill)=>{
   const newSkill = skill;
   await axios.put(url + "/skill/" + id, newSkill).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
@@ -211,16 +218,16 @@ const updateEstadeModalPostSkill = ()=>{
 const requestPostSkill = async (skill)=>{
   const newSkill = skill;
   await axios.post(url + "/skill", newSkill).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
 
 const requestGetSkill = async (id)=>{  
   await axios.get(url + "/skill/"+ id).then(response=>{
-    console.log(response.data);
+    
     setSkills(response.data);
-    console.log(response.data.content)
+    
     requestGet();
   }).catch(error=>{
     console.log(error)
@@ -282,7 +289,7 @@ const updateEstadeModalModifeExperience = ()=>{
 const requestPutExperience = async (id, exp)=>{
   const newExperience = exp;
   await axios.put(url + "/experience/" + id, newExperience).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
@@ -303,16 +310,16 @@ const updateEstadeModalPostExperience = ()=>{
 const requestPostExperience = async (ex)=>{
   const newExp = ex;
   await axios.post(url + "/experience", newExp).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
 
 const requestGetExperience = async (id)=>{  
   await axios.get(url + "/experience/"+ id).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     setExperience(response.data);
-    console.log(response.data.content)
+    // console.log(response.data.content)
     requestGet();
   }).catch(error=>{
     console.log(error)
@@ -375,7 +382,7 @@ const updateEstadeModalModifeContact = ()=>{
 const requestPutContact = async (id, cont)=>{
   const newContact = cont;
   await axios.put(url + "/contact/" + id, newContact).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
@@ -396,16 +403,16 @@ const updateEstadeModalPostContact = ()=>{
 const requestPostContact = async (cont)=>{
   const newCont = cont;
   await axios.post(url + "/contact", newCont).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
 
 const requestGetContact = async (id)=>{  
   await axios.get(url + "/contact/"+ id).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     setContact(response.data);
-    console.log(response.data.content)
+    // console.log(response.data.content)
     requestGet();
   }).catch(error=>{
     console.log(error)
@@ -473,7 +480,7 @@ const updateEstadeModalModifeEducation = ()=>{
 const requestPutEducation = async (id, educ)=>{
   const newEducation = educ;
   await axios.put(url + "/education/" + id, newEducation).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
@@ -494,7 +501,7 @@ const updateEstadeModalPostEducation = ()=>{
 const requestPostEducation = async (cont)=>{
   const newEducation = cont;
   await axios.post(url + "/education", newEducation).then(response=>{
-    console.log(response.data);
+    // console.log(response.data);
     requestGet();
   })    
 }
@@ -502,8 +509,8 @@ const requestPostEducation = async (cont)=>{
 const requestGetEducation = async (id)=>{  
   await axios.get(url + "/education/"+ id).then(response=>{
     console.log(response);
-    console.log(response.data);    
-    console.log(response.data.content)
+    // console.log(response.data);    
+    // console.log(response.data.content)
     setEducation(response.data);
     requestGet();
   }).catch(error=>{
@@ -561,10 +568,7 @@ const requestDeleteEducation = async (idEd)=>{
      </ModalBody> 
      <ModalFooter>
     
-      <button className='btn btn-outline-success btn-sm' onClick={()=>{requestLogin(bodyParameters); updateEstadeModalLogin(bodyParameters)}}> Ingresar</button>
-      
-      {/* <button className='btn btn-outline-primary btn-sm' onClick={()=>{requestPostEducation(education); updateEstadeModalPostEducation()}}>Insertar</button>           
-   */}
+      <button className='btn btn-outline-success btn-sm' onClick={()=>{requestLogin(bodyParameters); updateEstadeModalLogin(bodyParameters)}}> Ingresar</button>      
        <button className='btn btn-outline-danger btn-sm'  onClick={()=>{updateEstadeModalLogin()}}>Cancelar</button>
         
      </ModalFooter>
@@ -848,7 +852,23 @@ const requestDeleteEducation = async (idEd)=>{
               <option  value="CONTINUA">CONTINUA</option>
               <option value="FINALIZADO">FINALIZADO</option>
             </select>
-         </div>             
+            <br/>             
+            <label htmlFor='startDate'>start date</label><br/>         
+            <input type="date" name="startDate" id="startDate" defaultValue={modalModifeEducation? education.startDate: "2002-01-01"}  min="2002-01-01" onChange={(e) => handleChangeEducation(e)}/>                             
+            
+              <br/>
+              {education.state == "FINALIZADO"
+              ?
+              <div>
+               
+              <label htmlFor='finishDate'>finish date</label><br/> 
+                <input type="date" name="finishDate" id="finishDate" defaultValue={modalModifeEducation? education.finishDate : today} min="2017-01-01" max={today} onChange={(e) => handleChangeEducation(e)}/>
+              </div>
+              :""
+              } 
+        
+         </div>    
+          
        
      </ModalBody> 
      <ModalFooter>
@@ -1024,10 +1044,10 @@ const requestDeleteEducation = async (idEd)=>{
                 <img class="short-line" src="./short-line.png"></img>
                 {getProfil.education && getProfil.education.map(ed=>{return(
                     <div>
-                    <div key={ed.id} class="text-just"><strong>. {ed.finishDate? ed.finishDate.substr(-4): ed.finishDate} - {ed.title} ({ed.state}):</strong>
+                    <div key={ed.id} class="text-just"><strong>. {ed.startDate? ed.startDate.substr(0, 4): ""} - {ed.title} ({ed.state}):</strong>
                     </div>
                     <ul class="ul-text">
-                      <li class="li-text"> {ed.description} -  {ed.state}: {ed.finishDate ? ed.finishDate: ed.finishDate}.</li>                    
+                      <li class="li-text"> {ed.description} -  {ed.state}: {ed.finishDate ? moment(ed.finishDate).format("MMM Do YY"): ""}.</li>                    
                       &nbsp;&nbsp;&nbsp;{" "}
                       {isLog?
               <button className='btn btn-outline-primary btn-sm' onClick={()=>{requestGetEducation(ed.id);updateEstadeModalModifeEducation()}}><FontAwesomeIcon icon={faEdit} /></button>
