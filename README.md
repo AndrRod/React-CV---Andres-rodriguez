@@ -1,14 +1,3 @@
-# El objetivo del Proyecto es consumir Api Rest creado en Java y Spring Boot
-
-### FRONT END VIDEO DEMOSTRATIVO.
-
-https://youtu.be/Dri-6JdQHak
-
-# Vista previa:
-
-![vista previs](./public/cvAndresRodriguez.png) 
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
