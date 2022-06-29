@@ -1,5 +1,6 @@
 import './App.css';
 import axios from 'axios';
+
 import React, { Profiler } from 'react';
 import { Component, useEffect, useState } from 'react';
 //boostrap
@@ -855,18 +856,17 @@ const requestDeleteEducation = async (idEd)=>{
             </select>
             <br/>             
             <label htmlFor='startDate'>start date</label><br/>         
-            <input type="date" name="startDate" id="startDate" defaultValue={modalModifeEducation? education.startDate: "2002-01-01"}  min="2002-01-01" onChange={(e) => handleChangeEducation(e)}/>                             
+            <input type="date" name="startDate" id="startDate" defaultValue={modalModifeEducation? education.startDate: "1980-01-01"}  min="2002-01-01" onChange={(e) => handleChangeEducation(e)}/>                             
             
               <br/>
-              {education.state == "FINALIZADO"
-              ?
               <div>
                
-              <label htmlFor='finishDate'>finish date</label><br/> 
-                <input type="date" name="finishDate" id="finishDate" defaultValue={modalModifeEducation? education.finishDate : today} min="2017-01-01" max={today} onChange={(e) => handleChangeEducation(e)}/>
+              {education.state == "FINALIZADO"
+              ?<label htmlFor='finishDate'>finish date</label>
+              :<label htmlFor='finishDate'>Continue date</label>
+              } <br/> 
+                <input type="date" name="finishDate" id="finishDate" defaultValue={modalModifeEducation? education.finishDate : today} min="2002-01-01" max={today} onChange={(e) => handleChangeEducation(e)}/>
               </div>
-              :""
-              } 
         
          </div>    
           
