@@ -10,9 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faSave, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 // reactstrap
 import { Modal, ModalBody, ModalHeader, ModalFooter, Form, Button, } from 'reactstrap';
-import { text } from '@fortawesome/fontawesome-svg-core';
 import moment from "moment"; 
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -33,8 +31,7 @@ function App() {
     email: "",
     password: ""
  });
- const [isLog, setIsLog] = useState("");
- const [lenghtToken, setlenghtToken] = useState("")
+ const [isLog, setIsLog] = useState(""); 
 
  const handleChangeBodyParameters = (e) => {
    setBodyParameters({
@@ -920,7 +917,7 @@ const requestDeleteEducation = async (idEd)=>{
     <div class="div-head">            
         <div class="div-img-back-title">
             <div class="cont-title"> 
-                <img class="div-image" src={getProfil.imageProfileUrl}></img>                
+                <img class="div-image" alt="div-image" src={getProfil.imageProfileUrl}></img>                
                 <div class="div-title">
                     <h2 id="h2">{getProfil.firstName} {getProfil.lastName}&nbsp;&nbsp;&nbsp;
                     {isLog?
@@ -942,7 +939,7 @@ const requestDeleteEducation = async (idEd)=>{
                   
                 </div>
             </div>
-            <img class="line-title" src="./large-line.png"></img>
+            <img alt="line-large" class="line-title" src="./large-line.png"></img>
         </div>        
     </div>
 
@@ -950,7 +947,7 @@ const requestDeleteEducation = async (idEd)=>{
         <div id="col-1">
             <div id="div-1">
               <h5 id="h5">P E R F I L  </h5>
-                <img class="short-line" src="./short-line.png"></img>
+                <img alt="line-short" class="short-line" src="./short-line.png"></img>
                 <div class="text-cent">
                     {getProfil.profileDescription}
                     {/* {" "}<button className='btn btn-outline-primary btn-sm'><FontAwesomeIcon icon={faSave} /></button>
@@ -970,7 +967,7 @@ const requestDeleteEducation = async (idEd)=>{
                 <button className='btn btn-outline-primary btn-sm'><FontAwesomeIcon icon={faSave} onClick={()=>{updateEstadeModalPostContact()}}/></button>
                 :""}
                 </h5>
-                <img class="short-line" src="./short-line.png"></img>
+                <img alt="line-short" class="short-line" src="./short-line.png"></img>
                 {getProfil.contactAndPortfolio && getProfil.contactAndPortfolio.map(cont=>{return(
                   <div key={cont.id} class="div-cont">                                                       
               {" "}
@@ -982,9 +979,9 @@ const requestDeleteEducation = async (idEd)=>{
               <button className="btn btn-outline-danger btn-sm" onClick={()=>{requestGetContact(cont.id); updateEstadeModalDeleteContact()}}><FontAwesomeIcon icon={faTrashAlt} /></button> 
                 :""}
               {" "} &nbsp;&nbsp;
-                    <img class="cont-img" src={cont.logoUrl}></img>
+                    <img alt="cont-img" class="cont-img" src={cont.logoUrl}></img>
                     <div class="text-left">                        
-                        <a id="links" href={cont.contactUrl} target="_blank">{cont.contactName}</a>
+                        <a id="links" href={cont.contactUrl} target="_blank" rel="noreferrer">{cont.contactName}</a>
                     </div>                            
                 </div>                           
                   )})}
@@ -998,7 +995,7 @@ const requestDeleteEducation = async (idEd)=>{
                 <button className='btn btn-outline-primary btn-sm' onClick={()=>{updateEstadeModalPostSkill()}}><FontAwesomeIcon icon={faSave} /></button>
                 :""}
                 </h5>                    
-                <img class="short-line" src="./short-line.png"></img>
+                <img class="short-line" src="./short-line.png" alt="line-short"></img>
                 
                   {getProfil.skills && getProfil.skills.map(skill=>{return(
                     <div key={skill.id} class="text-just"><strong>. {skill.name}: </strong> {skill.description} 
@@ -1021,7 +1018,7 @@ const requestDeleteEducation = async (idEd)=>{
                 <button className='btn btn-outline-primary btn-sm' onClick={()=>{updateEstadeModalPostExperience()}}><FontAwesomeIcon icon={faSave} /></button>
                  :""}
                 </h5>
-                <img class="short-line" src="./short-line.png"></img>
+                <img alt="line-short" class="short-line" src="./short-line.png"></img>
                 {getProfil.experiences && getProfil.experiences.map(exp=>{return(
                 <div key={exp.id} class="text-just"><strong>. {exp.title}:</strong> {exp.description}
               &nbsp;&nbsp;&nbsp;{" "}
@@ -1042,7 +1039,7 @@ const requestDeleteEducation = async (idEd)=>{
                 <button className='btn btn-outline-primary btn-sm' onClick={()=>{updateEstadeModalPostEducation()}}><FontAwesomeIcon icon={faSave} /></button>
                 :""}
                 </h5>
-                <img class="short-line" src="./short-line.png"></img>
+                <img class="short-line" src="./short-line.png" alt="line-short"></img>
                 {getProfil.education && getProfil.education.map(ed=>{return(
                     <div>
                     <div key={ed.id} class="text-just"><strong>. {ed.startDate? ed.startDate.substr(0, 4): ""} - {ed.title} ({ed.state}):</strong>
@@ -1066,7 +1063,7 @@ const requestDeleteEducation = async (idEd)=>{
         </div>
     </div>   
     <footer id="div-foot">
-        <p>Hecho por Andres Rodriguez - <a class="p" href="https://github.com/AndrRod?tab=repositories" target="_blank">GitHub</a> - 2022 </p>
+        <p>Hecho por Andres Rodriguez - <a class="p" href="https://github.com/AndrRod?tab=repositories" target="_blank" rel="noreferrer">GitHub</a> - 2022 </p>
     </footer>
 
     </div>
