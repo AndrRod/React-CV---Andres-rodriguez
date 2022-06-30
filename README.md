@@ -9,9 +9,6 @@ npm install moment
 # Dirección URL del frontend en producción
 https://cv-andres-rodriguez.netlify.app/
 
-# Video demostrativo
-
-https://youtu.be/ZSQGjfQzzhQ
 
 # Getting Started with Create React App
 
