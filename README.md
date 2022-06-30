@@ -1,3 +1,4 @@
+
 #Para ejecutar el proyecto instalar:
 npm install axios
 npm install bootstrap
@@ -5,6 +6,12 @@ npm install @fortawesome/react-fontawesome
 npm install @fortawesome/free-solid-svg-icons
 npm install moment
 
+# Dirección URL del frontend en producción
+https://cv-andres-rodriguez.netlify.app/
+
+# Video demostrativo
+
+https://youtu.be/ZSQGjfQzzhQ
 
 # Getting Started with Create React App
 
