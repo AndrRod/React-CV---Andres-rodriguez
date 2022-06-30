@@ -861,9 +861,8 @@ const requestDeleteEducation = async (idEd)=>{
                
               <label htmlFor='finishDate'>finish date</label>
               {education.state == "FINALIZADO"
-              ?<label htmlFor='finishDate'>Continue date</label>
-              
-              :<label htmlFor='finishDate'>Finish date</label>
+              ?<label htmlFor='finishDate'>Finish date</label>              
+              :<label htmlFor='finishDate'>Continue date</label>
               } <br/> 
                 <input type="date" name="finishDate" id="finishDate" defaultValue={modalModifeEducation? education.finishDate : today} min="2002-01-01" max={today} onChange={(e) => handleChangeEducation(e)}/>
               </div>
