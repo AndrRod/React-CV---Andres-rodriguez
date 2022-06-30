@@ -1,3 +1,11 @@
+#Para ejecutar el proyecto instalar:
+npm install axios
+npm install bootstrap
+npm install @fortawesome/react-fontawesome
+npm install @fortawesome/free-solid-svg-icons
+npm install moment
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

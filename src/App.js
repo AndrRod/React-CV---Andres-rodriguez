@@ -1,6 +1,5 @@
 import './App.css';
 import axios from 'axios';
-
 import React, { Profiler } from 'react';
 import { Component, useEffect, useState } from 'react';
 //boostrap
@@ -856,6 +855,8 @@ const requestDeleteEducation = async (idEd)=>{
             <input type="date" name="startDate" id="startDate" defaultValue={modalModifeEducation? education.startDate: "1980-01-01"}  min="2002-01-01" onChange={(e) => handleChangeEducation(e)}/>                             
             
               <br/>
+              {education.state == "FINALIZADO"
+              ?
               <div>
                
               {education.state == "FINALIZADO"
@@ -864,6 +865,8 @@ const requestDeleteEducation = async (idEd)=>{
               } <br/> 
                 <input type="date" name="finishDate" id="finishDate" defaultValue={modalModifeEducation? education.finishDate : today} min="2002-01-01" max={today} onChange={(e) => handleChangeEducation(e)}/>
               </div>
+              :""
+              } 
         
          </div>    
           
@@ -906,10 +909,9 @@ const requestDeleteEducation = async (idEd)=>{
         <ul class="menu">
             <li class="logo"><a class="link">{getProfil.firstName} {getProfil.lastName} - CV</a></li>
             {isLog
-            ?<li class="item button secondary"><a class="link" onClick={()=>{updateEstadeModalLogout()}}>Log out</a></li>
-            :<li class="item button secondary"><a class="link" onClick={()=>{updateEstadeModalLogin()}}>Login</a></li>
-            
-          }
+            ?<li class="item button secondary"><a class="link" href="#" onClick={()=>{updateEstadeModalLogout()}}>Log out</a></li>
+            :<li class="item button secondary"><a class="link" href="#" onClick={()=>{updateEstadeModalLogin()}}>Login</a></li>
+            }
           
         </ul>
     </nav>
