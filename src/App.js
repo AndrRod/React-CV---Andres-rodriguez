@@ -905,7 +905,13 @@ const requestDeleteEducation = async (idEd)=>{
 
     <nav class="div-nav"> 
         <ul class="menu">
-            <li class="logo"><a class="link">{getProfil.firstName} {getProfil.lastName} - CV</a></li>
+            
+            <li class="logo">
+              <a class="link">{getProfil.firstName} {getProfil.lastName} - CV</a>
+            <a id="links" href="https://youtu.be/KPgIV6O8IZc" target="_blank" class="links">&nbsp;video</a>
+            
+            </li>
+            
             {isLog
             ?<li class="item button secondary"><a href="#" class="link" onClick={()=>{updateEstadeModalLogout()}}>Log out</a></li>
             :<li class="item button secondary"><a href="#" class="link" onClick={()=>{updateEstadeModalLogin()}}>Login</a></li>
