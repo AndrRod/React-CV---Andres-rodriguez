@@ -15,7 +15,7 @@ import './App.css';
 
 function App() { 
   // let url = "http://localhost:8080"
-  let url = "https://cv-andres.herokuapp.com/"
+  let url = "https://cv-andres.herokuapp.com"
 
   var now = new Date();
   var month = (now.getMonth() + 1);               
