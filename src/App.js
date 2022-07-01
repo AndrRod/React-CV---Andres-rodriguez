@@ -1069,7 +1069,7 @@ const requestDeleteEducation = async (idEd)=>{
         </div>
     </div>   
     <footer id="div-foot">
-        <p>Hecho por Andres Rodriguez - <a class="p" href="https://github.com/AndrRod?tab=repositories" target="_blank" rel="noreferrer">GitHub</a> - 2022 </p>
+        <p> Hecho por Andres Rodriguez (Java - Srping Boot y React)  - <a class="p" href="https://github.com/AndrRod/Backend-CV-Andres-Rodriguez" target="_blank" rel="noreferrer">GitHub</a> - 2022 </p>
     </footer>
 
     </div>
