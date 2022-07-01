@@ -996,7 +996,7 @@ const requestDeleteEducation = async (idEd)=>{
         </div>
         <div id="col-2">            
             <div id="div-3">
-                <h5 id="h5">H A B I L I D A D E S &nbsp;  Y  &nbsp; C O M P E T E N C I A     &nbsp;&nbsp;&nbsp; {" "}
+                <h5 id="h5">H A B I L I D A D E S &nbsp;  Y  &nbsp; C O M P E T E N C I A S    &nbsp;&nbsp;&nbsp; {" "}
                 {isLog?
                 <button className='btn btn-outline-primary btn-sm' onClick={()=>{updateEstadeModalPostSkill()}}><FontAwesomeIcon icon={faSave} /></button>
                 :""}
