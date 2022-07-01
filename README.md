@@ -1,14 +1,17 @@
 
-#Para ejecutar el proyecto instalar:
+# Para ejecutar el proyecto instalar:
 
 npm install axios \
 npm install bootstrap \
 npm install @fortawesome/react-fontawesome \
 npm install @fortawesome/free-solid-svg-icons \
-npm install moment \
+npm install moment
  
 # Dirección URL del frontend en producción
 https://cv-andres-rodriguez.netlify.app/
+
+# Dirección URL del backend en producción
+let url = "https://cv-andres.herokuapp.com/"
 
 # Video demostrativo
 
